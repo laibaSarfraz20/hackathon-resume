@@ -1,6 +1,10 @@
-var _a;
-(_a = document.getElementById("form-resume")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", function (event) {
+// Get the form element
+var form = document.getElementById("form-resume");
+// Add event listener to the form
+form === null || form === void 0 ? void 0 : form.addEventListener("submit", function (event) {
+    // Prevent default form submission
     event === null || event === void 0 ? void 0 : event.preventDefault();
+    // Get the input values
     var name = document.getElementById("name");
     var email = document.getElementById("email");
     var contact = document.getElementById("contact");
@@ -22,10 +26,10 @@ var _a;
             resumeOutputElement.innerHTML = resumeOutput;
         }
         else {
-            console.error("some elements are missing!");
+            console.error("resume-output element is missing!");
         }
     }
     else {
-        console.error("one or more outputs");
+        console.error("one or more output elements are missing!");
     }
 });
