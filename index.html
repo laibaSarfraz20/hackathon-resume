@@ -10,35 +10,35 @@
 
 <body>
 
-<h1 id="Resume-head">Resume</h1>
+<h1 id="Resume-head">Resume Builder</h1>
     <form class="form-resume">
         <fieldset>
             <h2>Personal Information:</h2>
             <label for="username" required="required" placeholder="Name"> Name:
-                <input type="text" name="username" id="information-one" class="resume-inputs"></label><br>
+                <input type="text" name="username" id="name" class="resume-inputs"></label><br>
 
             <label required="required" placeholder="Email"> Email:
-                <input type="text" name="email" id="information-two" class="resume-inputs"></label><br>
+                <input type="text" name="email" id="email" class="resume-inputs"></label><br>
 
             <label required="required" placeholder="Contact">Phone:
-                <input type="number" name="number" id="information-three" class="resume-inputs"></label><br>
+                <input type="number" name="number" id="contact" class="resume-inputs"></label><br>
 
             <label required="required" placeholder="Address">Address:
-                <input type="password" name="password" id="information-four" class="resume-inputs"></label><br>
+                <input type="password" name="password" id="address" class="resume-inputs"></label><br>
 
             <h2>Key Acheivements:</h2>
-            <textarea name="achievements" placeholder="Company Name & description" cols="15" rows="2" class="resume-inputs"></textarea><br>
+            <textarea name="achievements"id="achievements" placeholder="Company Name & description" cols="15" rows="2" class="resume-inputs"></textarea><br>
             <h2>Education:</h2>
-            <textarea name="education" placeholder="Degree /feild of study" cols="15" rows="2"></textarea><br>
+            <textarea name="education" id="education" placeholder="Degree /feild of study" cols="15" rows="2"></textarea><br>
             <h2>Experience:</h2>
-            <textarea name="experince" placeholder="Company Name & description" cols="15" rows="2"></textarea><br>
+            <textarea name="experince"id="experince" placeholder="Company Name & description" cols="15" rows="2"></textarea><br>
             <h2>Skills:</h2>
-            <textarea name="skills" placeholder="Company Name & description" cols="15" rows="2"></textarea><br>
+            <textarea name="skills" id="skills" placeholder="Company Name & description" cols="15" rows="2"></textarea><br>
 
           <p>
                <b> Select your Gender:</b>
                 <label for="male">
-                    <input type="radio" id="male" name="gender" value="male">
+                    <input type="radio" id="male" name="gender" value="male" >
                     Male
                 </label>
                 <label for="female"><input type="radio" id="female" name="gender" value="female"> Female</label>
@@ -49,6 +49,10 @@
         </fieldset>
     </form>
 
+    <div id="resume-output">
+
+    </div>
+<script src="mains.ts"></script>
 
    
 </body>
