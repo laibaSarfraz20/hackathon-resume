@@ -1,4 +1,4 @@
-document.getElementById("form-resume")?.addEventListener("submit", function (event) {
+document.getElementById("form-resume")?.addEventListener("submit", function  (event) {
     event?.preventDefault();
 
 
