@@ -1,10 +1,6 @@
-// Get the form element
-var form = document.getElementById("form-resume");
-// Add event listener to the form
-form === null || form === void 0 ? void 0 : form.addEventListener("submit", function (event) {
-    // Prevent default form submission
+var _a;
+(_a = document.getElementById("form-resume")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", function (event) {
     event === null || event === void 0 ? void 0 : event.preventDefault();
-    // Get the input values
     var name = document.getElementById("name");
     var email = document.getElementById("email");
     var contact = document.getElementById("contact");
@@ -20,16 +16,16 @@ form === null || form === void 0 ? void 0 : form.addEventListener("submit", func
         var educationElement = education.value;
         var experienceElement = experience.value;
         var skillsElement = skills.value;
-        var resumeOutput = "\n  <h1>Resume</h2>\n  <p> Name: ".concat(nameElement, " </p>\n  <p> Email:  ").concat(emailElement, "</p>\n  <p> Contact:  ").concat(contactElement, "</p>\n  <p> Address:  ").concat(addressElement, "</p>\n  <p> Education: ").concat(educationElement, " </p>\n  <p> Experience: ").concat(experienceElement, " </p>\n  <p> Skills:  ").concat(skillsElement, "</p>\n      ");
+        var resumeOutput = "\n        <h2>Resume</h2>\n        <p> Name: ".concat(nameElement, " </p>\n        <p> Email:  ").concat(emailElement, "</p>\n        <p> Contact:  ").concat(contactElement, "</p>\n        <p> Address:  ").concat(addressElement, "</p>\n        <p> Education: ").concat(educationElement, " </p>\n        <p> Experience: ").concat(experienceElement, " </p>\n        <p> Skills:  ").concat(skillsElement, "</p>\n        ");
         var resumeOutputElement = document.getElementById("resume-output");
         if (resumeOutputElement) {
             resumeOutputElement.innerHTML = resumeOutput;
         }
         else {
-            console.error("resume-output element is missing!");
+            console.error("some elements are missing!");
         }
     }
     else {
-        console.error("one or more output elements are missing!");
+        console.error("one or more outputs");
     }
 });
