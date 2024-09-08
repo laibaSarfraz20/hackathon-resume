@@ -14,8 +14,17 @@
     <form href= "#" class="form-resume" id="resume-form">
         <fieldset>
             <h2>Personal Information:</h2>
-            <label for="username" required="required" placeholder="Name"> Name:
-                <input type="text" name="username" id="name" class="resume-inputs"></label><br>
+
+<!-- <label for="username"> Resume Url: 
+    <input type="text" name="username" id="username" >
+</label> -->
+
+<label for="profilePicture">
+    <input type="file" name="profilePicture" id="profilePicture" accept="*/image" required>
+</label>
+
+            <label for="name" required="required" placeholder="Name"> Name:
+                <input type="text" name="name" id="name" class="resume-inputs"></label><br>
 
             <label required="required" placeholder="Email"> Email:
                 <input type="text" name="email" id="email" class="resume-inputs"></label><br>

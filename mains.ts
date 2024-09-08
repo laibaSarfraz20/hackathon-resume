@@ -2,7 +2,7 @@
 document.getElementById("form-resume")?.addEventListener("submit", function (event) {
     event?.preventDefault();
 
-
+       var profile = document.getElementById("profilePicture") as HTMLInputElement;
        var name = document.getElementById("name") as HTMLInputElement;
        var email = document.getElementById("email") as HTMLInputElement;
        var contact = document.getElementById("contact") as HTMLInputElement;
@@ -12,7 +12,8 @@ document.getElementById("form-resume")?.addEventListener("submit", function (eve
        var skills = document.getElementById("skills") as HTMLInputElement;
        var achievements = document.getElementById("achievements") as HTMLInputElement;
 
-     if (name && email && contact && address && education && experience && skills && achievements) {
+     if ( profile && name && email && contact && address && education && experience && skills && achievements) {
+       
         var nameElement = name.value;
         var emailElement = email.value;
         var contactElement = contact.value;
@@ -23,8 +24,15 @@ document.getElementById("form-resume")?.addEventListener("submit", function (eve
         var skillsElement = skills.value;
 
 
+         var profilePictureFile = profile.files?.[0]
+         var profilePictureURL = profilePictureFile ? URL.createObjectURL(profilePictureFile): "";
+ 
+
+
         var resumeOutput = `
         <h2>Resume</h2>
+        ${profilePictureURL ? `img src=" ${profilePictureURL}" alt="profile" class = "prof"> `: ""}
+
         <p> Name:<span id="edit-name" class="editable"> ${nameElement} </span></p>
         <p> Email: <span id="edit-email" class="editable"> ${emailElement} </span></p>
         <p> Contact: <span id="edit-contact" class="editable"> ${contactElement} </span></p>
