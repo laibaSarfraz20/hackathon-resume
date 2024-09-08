@@ -8,24 +8,48 @@ var _a;
     var education = document.getElementById("education");
     var experience = document.getElementById("experience");
     var skills = document.getElementById("skills");
-    if (name && email && contact && address && education && experience && skills) {
+    var achievements = document.getElementById("achievements");
+    if (name && email && contact && address && education && experience && skills && achievements) {
         var nameElement = name.value;
         var emailElement = email.value;
         var contactElement = contact.value;
         var addressElement = address.value;
+        var achievementsElement = education.value;
         var educationElement = education.value;
-        var experienceElement = experience.value;
+        var experienceElement = achievements.value;
         var skillsElement = skills.value;
-        var resumeOutput = "\n        <h2>Resume</h2>\n        <p> Name: ".concat(nameElement, " </p>\n        <p> Email:  ").concat(emailElement, "</p>\n        <p> Contact:  ").concat(contactElement, "</p>\n        <p> Address:  ").concat(addressElement, "</p>\n        <p> Education: ").concat(educationElement, " </p>\n        <p> Experience: ").concat(experienceElement, " </p>\n        <p> Skills:  ").concat(skillsElement, "</p>\n        ");
+        var resumeOutput = "\n        <h2>Resume</h2>\n        <p> Name:<span id=\"edit-name\" class=\"editable\"> ".concat(nameElement, " </span></p>\n        <p> Email: <span id=\"edit-email\" class=\"editable\"> ").concat(emailElement, " </span></p>\n        <p> Contact: <span id=\"edit-contact\" class=\"editable\"> ").concat(contactElement, " </span></p>\n        <p> Address: <span id=\"edit-address\" class=\"editable\"> ").concat(addressElement, " </span></p>\n\n        <p> Key Achievements:<p id=\"edit-acheivements\" class=\"editable\"> ").concat(achievementsElement, " </p></p>\n        <p> Education:<p  id=\"edit-education\" class=\"editable\"> ").concat(educationElement, " </p> </p>\n        <p> Experience: <p  id=\"edit-education\" class=\"editable\">").concat(experienceElement, " </p></p>\n        <p> Skills: <p  id=\"edit-education\" class=\"editable\"> ").concat(skillsElement, "</p></p>\n        ");
         var resumeOutputElement = document.getElementById("resume-output");
         if (resumeOutputElement) {
             resumeOutputElement.innerHTML = resumeOutput;
+            makeEditable();
         }
         else {
             console.error("some elements are missing!");
         }
     }
-    else {
-        console.error("one or more outputs");
-    }
 });
+function makeEditable() {
+    var editableElements = document.querySelectorAll(".editable");
+    editableElements.forEach(function (element) {
+        element.addEventListener('click', function () {
+            var _a;
+            var currentElements = element;
+            var currentValue = currentElements.textContent || '';
+            if (currentElements.tagName === "p" || currentElements.tagName === "span") {
+                var input = document.createElement("input");
+                input.type = "text"; // corrected here
+                input.value = currentValue;
+                input.classList.add("editing-input");
+                input.addEventListener("blur", function () {
+                    currentElements.textContent = input.value;
+                    currentElements.style.display = " inline";
+                    input.remove();
+                });
+                currentElements.style.display = "none";
+                (_a = currentElements.parentNode) === null || _a === void 0 ? void 0 : _a.insertBefore(input, currentElements);
+                input.focus();
+            }
+        });
+    });
+}
